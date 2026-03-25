@@ -102,8 +102,8 @@ export const HeroHome = () => {
     />
 
     <Container className="relative pb-14 pt-10 sm:pb-20 sm:pt-16 lg:pb-24 lg:pt-20">
-      <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-        <div>
+      <div className="grid min-w-0 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="min-w-0">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
@@ -117,7 +117,7 @@ export const HeroHome = () => {
           </motion.div>
 
           <motion.h1
-            className="mt-6 font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-[3.25rem] lg:leading-[1.08]"
+            className="mt-6 font-display text-[2.65rem] font-semibold tracking-tight text-ink sm:text-5xl lg:text-[3.25rem] lg:leading-[1.08]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
@@ -146,11 +146,19 @@ export const HeroHome = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
           >
-            <ButtonLink to="/programmes" variant="primary">
+            <ButtonLink
+              to="/programmes"
+              variant="primary"
+              className="w-full justify-center sm:w-auto"
+            >
               Explore programmes
               <ArrowRight className="h-4 w-4" aria-hidden />
             </ButtonLink>
-            <ButtonLink to="/contact" variant="outline">
+            <ButtonLink
+              to="/contact"
+              variant="outline"
+              className="w-full justify-center bg-surface-0 sm:w-auto"
+            >
               Talk to our team
             </ButtonLink>
           </motion.div>
@@ -223,12 +231,12 @@ export const HeroHome = () => {
         </div>
 
         <motion.div
-          className="relative mx-auto w-full max-w-full lg:max-w-none"
+          className="relative mx-auto w-full min-w-0 max-w-full lg:max-w-none"
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="relative w-full max-w-full lg:ml-auto lg:max-w-[520px]">
+          <div className="relative w-full min-w-0 max-w-full sm:mx-auto sm:max-w-md lg:ml-auto lg:max-w-[520px]">
             <motion.div
               aria-hidden
               style={{ y: y1 }}
