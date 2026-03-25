@@ -101,7 +101,7 @@ export const HeroHome = () => {
       }}
     />
 
-    <Container className="relative pb-16 pt-12 sm:pb-20 sm:pt-16 lg:pb-24 lg:pt-20">
+    <Container className="relative pb-14 pt-10 sm:pb-20 sm:pt-16 lg:pb-24 lg:pt-20">
       <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
           <motion.div
@@ -223,12 +223,12 @@ export const HeroHome = () => {
         </div>
 
         <motion.div
-          className="relative mx-auto w-full max-w-md lg:max-w-none"
+          className="relative mx-auto w-full max-w-full lg:max-w-none"
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="relative lg:ml-auto">
+          <div className="relative w-full max-w-full lg:ml-auto lg:max-w-[520px]">
             <motion.div
               aria-hidden
               style={{ y: y1 }}
@@ -240,7 +240,7 @@ export const HeroHome = () => {
               className="pointer-events-none absolute -bottom-8 -right-6 hidden h-28 w-28 rounded-3xl bg-linear-to-br from-teal-400/30 to-brand-500/20 blur-xl sm:block"
             />
 
-            <div className="grid gap-5">
+            <div className="grid w-full gap-5">
               <MagicCard className="rounded-3xl">
                 <div className="relative overflow-hidden rounded-3xl border border-border bg-surface-0 shadow-float ring-1 ring-border">
                   <BorderBeam
@@ -254,13 +254,13 @@ export const HeroHome = () => {
                     className="absolute inset-0 bg-linear-to-br from-brand-100/90 via-surface-0 to-warm-50/80"
                     aria-hidden
                   />
-                  <div className="relative flex flex-col items-center justify-center p-8 text-center">
+                  <div className="relative flex flex-col items-center justify-center p-6 text-center sm:p-8">
                     <img
                       src="/logo.png"
                       alt="Inspire Hub logo"
                       width={200}
                       height={200}
-                      className="h-44 w-44 object-contain drop-shadow-md sm:h-52 sm:w-52"
+                      className="h-40 w-40 object-contain drop-shadow-md sm:h-52 sm:w-52"
                     />
                     <p className="mt-6 font-display text-xs font-bold uppercase tracking-[0.25em] text-ink-subtle">
                       {SITE.tagline}
@@ -272,7 +272,7 @@ export const HeroHome = () => {
                 </div>
               </MagicCard>
 
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div className="grid gap-4 md:grid-cols-2">
                 <MagicCard className="rounded-3xl">
                   <div className="rounded-3xl border border-border bg-surface-0 p-6 shadow-card">
                     <div className="flex items-start justify-between gap-3">
