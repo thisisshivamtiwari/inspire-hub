@@ -1,4 +1,4 @@
-import { CalendarDays, Filter, MapPin, Sparkles } from 'lucide-react'
+import { CalendarDays, Filter, MapPin } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { CTABand } from '../components/sections/CTABand'
@@ -8,6 +8,7 @@ import { Lightbox } from '../components/ui/Lightbox'
 import { MagicCard } from '../components/ui/MagicCard'
 import { TiltCard } from '../components/ui/TiltCard'
 import { cn } from '../lib/cn'
+import { IMAGES } from '../lib/site'
 
 type EventType = 'All' | 'Workshop' | 'Youth-led' | 'Activity'
 
@@ -79,27 +80,15 @@ export const EventsPage = () => {
   return (
     <>
       <PageHero
-        backdrop="events"
-        eyebrow="Events & workshops"
-        title="Moments that feel safe, vibrant, and youth‑led"
-        subtitle="Browse upcoming events by type. Booking is simple, safeguarding is clear, and accessibility is always part of the conversation."
+        title="Moments that feel safe and youth-led"
+        image={IMAGES.card1}
+        accent="red"
+        cta={{ label: 'Ask about booking', to: '/contact' }}
       >
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-          <Link
-            to="/contact"
-            className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-brand-700"
-          >
-            Ask about booking
-            <Sparkles className="h-4 w-4" aria-hidden />
-          </Link>
-          <Link
-            to="/programmes"
-            className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-border bg-surface-0 px-6 py-3 text-sm font-semibold text-ink shadow-soft transition hover:border-brand-200 hover:bg-brand-50"
-          >
-            Explore programmes
-            <CalendarDays className="h-4 w-4" aria-hidden />
-          </Link>
-        </div>
+        <p>
+          Browse upcoming events by type. Booking is simple, safeguarding is clear, and
+          accessibility is always part of the conversation.
+        </p>
       </PageHero>
 
       <ContentBand>
@@ -262,7 +251,7 @@ export const EventsPage = () => {
         </div>
       </Lightbox>
 
-      <ContentBand surface="1">
+      <ContentBand surface="muted">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="rounded-3xl border border-border bg-surface-0 p-7 shadow-card lg:col-span-2">
             <h2 className="font-display text-xl font-semibold text-ink">

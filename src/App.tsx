@@ -1,5 +1,6 @@
-import { Link, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import { SiteLayout } from './components/layout/SiteLayout'
+import { OutlineButtonLink } from './components/ui/OutlineButton'
 import { AboutPage } from './pages/AboutPage'
 import { ContactPage } from './pages/ContactPage'
 import { EventsPage } from './pages/EventsPage'
@@ -15,20 +16,15 @@ import { SupportPage } from './pages/SupportPage'
 import { YouthZonePage } from './pages/YouthZonePage'
 
 const NotFoundPage = () => (
-  <div className="flex flex-1 flex-col items-center justify-center px-4 py-24 text-center">
-    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600">
-      404
-    </p>
-    <h1 className="mt-3 font-display text-3xl font-semibold text-ink">Page not found</h1>
+  <div className="flex flex-1 flex-col items-center justify-center bg-off-white px-4 py-24 text-center">
+    <p className="text-xs font-bold uppercase tracking-[0.2em] text-red">404</p>
+    <h1 className="mt-3 font-display text-3xl font-extrabold text-charcoal">Page not found</h1>
     <p className="mt-2 max-w-md text-sm text-ink-muted">
-      That page doesn’t exist — try the navigation above or head home.
+      That page doesn't exist — try the menu or head home.
     </p>
-    <Link
-      to="/"
-                 className="mt-8 inline-flex cursor-pointer items-center justify-center rounded-xl bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-0"
-    >
+    <OutlineButtonLink to="/" className="mt-8">
       Return home
-    </Link>
+    </OutlineButtonLink>
   </div>
 )
 

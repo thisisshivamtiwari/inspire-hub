@@ -1,10 +1,6 @@
 import { useCountUp } from '../../hooks/useCountUp'
 import { useInView } from '../../hooks/useInView'
 import { MotionReveal } from '../ui/MotionReveal'
-import { SectionHeading } from '../ui/SectionHeading'
-import { Container } from '../ui/Container'
-import { BorderBeam } from '../ui/BorderBeam'
-import { MagicCard } from '../ui/MagicCard'
 
 const STATS = [
   { label: 'Young people engaged', end: 500, suffix: '+' },
@@ -26,54 +22,39 @@ const StatBlock = ({
   const value = useCountUp(end, isInView)
 
   return (
-    <MagicCard className="rounded-3xl">
-      <div
-        ref={ref}
-        className="group relative overflow-hidden rounded-3xl border border-border bg-surface-0 p-6 text-center shadow-card"
-      >
-        <BorderBeam
-          borderWidth={1}
-          size={56}
-          durationSeconds={6.8}
-          colorFrom="#2563eb"
-          colorTo="#8b5cf6"
-        />
-        <div
-          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-brand-300/60 to-transparent"
-          aria-hidden
-        />
-        <p className="font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
-          {value}
-          {suffix}
-        </p>
-        <p className="mt-2 text-sm font-medium text-ink-muted">{label}</p>
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-brand-300/60 to-transparent opacity-0 transition group-hover:opacity-100"
-        />
-      </div>
-    </MagicCard>
+    <div
+      ref={ref}
+      className="border-2 border-charcoal bg-white p-6 text-center transition duration-300 hover:-translate-y-1 hover:shadow-soft"
+    >
+      <p className="font-display text-4xl font-extrabold text-charcoal sm:text-5xl">
+        {value}
+        {suffix}
+      </p>
+      <p className="mt-2 text-sm font-bold text-ink-muted">{label}</p>
+    </div>
   )
 }
 
 export const ImpactStats = () => (
-  <section className="border-b border-border bg-surface-0 py-16 sm:py-20 lg:py-24">
-    <Container>
+  <section className="bg-off-white py-16 lg:py-20">
+    <div className="sb-container">
       <MotionReveal>
-        <SectionHeading
-          eyebrow="Impact"
-          title="Outcomes we measure in confidence, connection, and access"
-          description="We’re a CIC — every programme is built to expand opportunity for young people who need it most."
-        />
+        <h2 className="font-display text-3xl font-extrabold text-red sm:text-4xl">
+          Outcomes we measure
+        </h2>
+        <p className="mt-4 max-w-2xl text-base text-ink-muted">
+          Confidence, connection, and access — we're a CIC built to expand opportunity for young
+          people who need it most.
+        </p>
       </MotionReveal>
 
-      <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {STATS.map((s, i) => (
-          <MotionReveal key={s.label} delay={i * 0.05}>
+          <MotionReveal key={s.label} delay={i * 0.06}>
             <StatBlock label={s.label} end={s.end} suffix={s.suffix} />
           </MotionReveal>
         ))}
       </div>
-    </Container>
+    </div>
   </section>
 )

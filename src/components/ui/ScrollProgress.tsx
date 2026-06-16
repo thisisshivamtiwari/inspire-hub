@@ -11,9 +11,8 @@ export const ScrollProgress = () => {
   return (
     <motion.div
       aria-hidden
-      className="absolute inset-x-0 bottom-0 h-px origin-left bg-gradient-to-r from-brand-600 via-violet-500 to-teal-500"
+      className="absolute inset-x-0 bottom-0 h-0.5 origin-left bg-linear-to-r from-sky via-yellow to-red"
       style={{ scaleX }}
     />
   )
 }
-

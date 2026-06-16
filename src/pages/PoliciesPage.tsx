@@ -5,6 +5,7 @@ import { ContentBand } from '../components/sections/ContentBand'
 import { BorderBeam } from '../components/ui/BorderBeam'
 import { MagicCard } from '../components/ui/MagicCard'
 import { StickySubnav } from '../components/ui/StickySubnav'
+import { IMAGES } from '../lib/site'
 
 const POLICIES = [
   {
@@ -48,10 +49,16 @@ const POLICIES = [
 export const PoliciesPage = () => (
   <>
     <PageHero
-      eyebrow="Policies"
       title="Trust is built on clarity"
-      subtitle="Safeguarding and data protection are foundational — not a footnote. Full policy documents are available on request."
-    />
+      image={IMAGES.card3}
+      accent="charcoal" 
+      showDiscover={false}
+    >
+      <p>
+        Safeguarding and data protection are foundational — not a footnote. Full policy documents
+        are available on request.
+      </p>
+    </PageHero>
 
     <ContentBand>
       <div className="grid gap-8 lg:grid-cols-12 lg:items-start">

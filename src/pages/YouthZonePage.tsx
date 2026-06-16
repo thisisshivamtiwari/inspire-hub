@@ -1,6 +1,5 @@
-import { Award, ImageIcon, PenLine, Sparkles } from 'lucide-react'
+import { Award, ImageIcon, PenLine } from 'lucide-react'
 import { useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { PageHero } from '../components/sections/PageHero'
 import { ContentBand } from '../components/sections/ContentBand'
 import { CTABand } from '../components/sections/CTABand'
@@ -8,6 +7,7 @@ import { Lightbox } from '../components/ui/Lightbox'
 import { MagicCard } from '../components/ui/MagicCard'
 import { TiltCard } from '../components/ui/TiltCard'
 import { cn } from '../lib/cn'
+import { IMAGES } from '../lib/site'
 
 const ZONES = [
   {
@@ -53,26 +53,15 @@ export const YouthZonePage = () => {
   return (
     <>
       <PageHero
-        backdrop="youth"
-        eyebrow="Youth zone"
         title="Showcase. Speak. Celebrate."
-        subtitle="A brighter corner of the site for creativity, voice, and wins — co‑created with young people."
+        image={IMAGES.heroHome}
+        accent="yellow"
+        cta={{ label: 'Submit a piece', to: '/contact' }}
       >
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-          <Link
-            to="/contact"
-            className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-violet-600 px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:brightness-105"
-          >
-            Submit a piece
-            <Sparkles className="h-4 w-4" aria-hidden />
-          </Link>
-          <Link
-            to="/support"
-            className="inline-flex cursor-pointer items-center justify-center rounded-xl border border-border bg-surface-0 px-6 py-3 text-sm font-semibold text-ink shadow-soft transition hover:border-brand-200 hover:bg-brand-50"
-          >
-            Support youth voice
-          </Link>
-        </div>
+        <p>
+          A brighter corner of the site for creativity, voice, and wins — co-created with young
+          people.
+        </p>
       </PageHero>
 
       <ContentBand>

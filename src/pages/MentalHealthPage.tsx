@@ -1,4 +1,4 @@
-import { AlertTriangle, Brain, Heart, Sparkles, Users } from 'lucide-react'
+import { AlertTriangle, Brain, Heart, Users } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { PageHero } from '../components/sections/PageHero'
 import { ContentBand } from '../components/sections/ContentBand'
@@ -9,6 +9,7 @@ import { BorderBeam } from '../components/ui/BorderBeam'
 import { MagicCard } from '../components/ui/MagicCard'
 import { TabsContent, TabsList, TabsRoot, TabsTrigger } from '../components/ui/Tabs'
 import { TiltCard } from '../components/ui/TiltCard'
+import { IMAGES } from '../lib/site'
 import { cn } from '../lib/cn'
 
 type Topic = 'Emotions' | 'Confidence' | 'Communication' | 'Stress' | 'Belonging'
@@ -67,26 +68,15 @@ const FAQS = [
 export const MentalHealthPage = () => (
   <>
     <PageHero
-      backdrop="mental"
-      eyebrow="Mental health support"
-      title="Wellbeing support that feels warm, safe, and real"
-      subtitle="Early‑intervention, non‑clinical sessions that help young people build emotional literacy, resilience, and coping tools — without judgement."
+      title="Wellbeing support that feels safe"
+      image={IMAGES.community}
+      accent="sky"
+      cta={{ label: 'Ask about support', to: '/contact' }}
     >
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-        <Link
-          to="/contact"
-          className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-violet-600 px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:brightness-105"
-        >
-          Ask about support
-          <Sparkles className="h-4 w-4" aria-hidden />
-        </Link>
-        <Link
-          to="/resources"
-          className="inline-flex cursor-pointer items-center justify-center rounded-xl border border-border bg-surface-0 px-6 py-3 text-sm font-semibold text-ink shadow-soft transition hover:border-brand-200 hover:bg-brand-50"
-        >
-          Browse resources
-        </Link>
-      </div>
+      <p>
+        Early-intervention, non-clinical sessions that help young people build emotional literacy,
+        resilience, and coping tools — without judgement.
+      </p>
     </PageHero>
 
     <ContentBand>
@@ -196,7 +186,7 @@ export const MentalHealthPage = () => (
       </div>
     </ContentBand>
 
-    <ContentBand surface="1">
+    <ContentBand surface="muted">
       <div className="grid gap-8 lg:grid-cols-2">
         <div>
           <Heart className="h-8 w-8 text-coral-500" aria-hidden />

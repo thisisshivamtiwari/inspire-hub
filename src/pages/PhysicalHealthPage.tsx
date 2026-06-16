@@ -4,6 +4,7 @@ import { ContentBand } from '../components/sections/ContentBand'
 import { CTABand } from '../components/sections/CTABand'
 import { BorderBeam } from '../components/ui/BorderBeam'
 import { MagicCard } from '../components/ui/MagicCard'
+import { IMAGES } from '../lib/site'
 
 const CARDS = [
   {
@@ -29,11 +30,16 @@ const CARDS = [
 export const PhysicalHealthPage = () => (
   <>
     <PageHero
-      backdrop="physical"
-      eyebrow="Physical health & activity"
-      title="Movement that builds confidence — and calm"
-      subtitle="Physical activity reduces stress, supports wellbeing, and helps young people build healthy habits for life."
-    />
+      title="Movement that builds confidence"
+      image={IMAGES.wellbeing}
+      accent="yellow"
+      cta={{ label: 'See programmes', to: '/programmes' }}
+    >
+      <p>
+        Physical activity reduces stress, supports wellbeing, and helps young people build healthy
+        habits for life.
+      </p>
+    </PageHero>
 
     <ContentBand>
       <div className="grid gap-5 md:grid-cols-3">

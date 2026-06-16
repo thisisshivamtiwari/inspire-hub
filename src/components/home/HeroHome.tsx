@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react'
 import { SITE } from '../../lib/site'
 import { AnimatedList } from '../ui/AnimatedList'
 import { BorderBeam } from '../ui/BorderBeam'
+import { BrandLogo } from '../ui/BrandLogo'
 import { ButtonLink } from '../ui/Button'
 import { Container } from '../ui/Container'
 import { MagicCard } from '../ui/MagicCard'
@@ -226,7 +227,7 @@ export const HeroHome = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.35, duration: 0.4 }}
           >
-            Serving {SITE.area} · {SITE.tagline}
+            Serving {SITE.area} · {SITE.brandTagline}
           </motion.p>
         </div>
 
@@ -263,17 +264,8 @@ export const HeroHome = () => {
                     aria-hidden
                   />
                   <div className="relative flex flex-col items-center justify-center p-6 text-center sm:p-8">
-                    <img
-                      src="/logo.png"
-                      alt="Inspire Hub logo"
-                      width={200}
-                      height={200}
-                      className="h-40 w-40 object-contain drop-shadow-md sm:h-52 sm:w-52"
-                    />
-                    <p className="mt-6 font-display text-xs font-bold uppercase tracking-[0.25em] text-ink-subtle">
-                      {SITE.tagline}
-                    </p>
-                    <p className="mt-4 text-sm leading-relaxed text-ink-muted">
+                    <BrandLogo size="xl" tone="dark" layout="stacked" />
+                    <p className="mt-6 text-sm leading-relaxed text-ink-muted">
                       Education · Enrichment · Movement · Mental wellbeing
                     </p>
                   </div>

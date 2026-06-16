@@ -5,6 +5,7 @@ import { CTABand } from '../components/sections/CTABand'
 import { BentoCard, BentoGrid } from '../components/ui/BentoGrid'
 import { BorderBeam } from '../components/ui/BorderBeam'
 import { MagicCard } from '../components/ui/MagicCard'
+import { IMAGES } from '../lib/site'
 
 const OFFERS = [
   {
@@ -27,11 +28,16 @@ const OFFERS = [
 export const SchoolsPage = () => (
   <>
     <PageHero
-      backdrop="schools"
-      eyebrow="For schools & professionals"
-      title="Partnership that fits your timetable — and your pupils"
-      subtitle="We align with PSHE priorities, pastoral needs, and safeguarding expectations — with practical, youth‑friendly delivery."
-    />
+      title="Partnership that fits your school"
+      image={IMAGES.heroProgrammes}
+      accent="sky"
+      cta={{ label: 'Book a call', to: '/contact' }}
+    >
+      <p>
+        We align with PSHE priorities, pastoral needs, and safeguarding expectations — with
+        practical, youth-friendly delivery.
+      </p>
+    </PageHero>
 
     <ContentBand>
       <BentoGrid>

@@ -1,177 +1,130 @@
-import { BadgeCheck, Heart, Sparkles } from 'lucide-react'
-import { PageHero } from '../components/sections/PageHero'
+import { CopyAbstractSection } from '../components/sections/CopyAbstractSection'
 import { ContentBand } from '../components/sections/ContentBand'
 import { CTABand } from '../components/sections/CTABand'
-import { TiltCard } from '../components/ui/TiltCard'
-import { BorderBeam } from '../components/ui/BorderBeam'
-import { MagicCard } from '../components/ui/MagicCard'
+import { LinkCardsSection } from '../components/sections/LinkCardsSection'
+import { PageHero } from '../components/sections/PageHero'
+import { IMAGES } from '../lib/site'
 
 const VALUES = [
-  { letter: 'I', title: 'Inclusion', body: 'Everyone belongs. Every voice matters.' },
-  { letter: 'N', title: 'Nurture', body: 'We grow confidence and spark creativity.' },
-  { letter: 'S', title: 'Support', body: 'A steady lift, a safe space to rise.' },
-  { letter: 'P', title: 'Possibility', body: 'No postcode. No limits. Just open doors.' },
-  { letter: 'I', title: 'Imagination', body: 'Expression fuels power; ideas shape futures.' },
-  { letter: 'R', title: 'Respect', body: 'We honour every story and challenge every barrier.' },
-  { letter: 'E', title: 'Empowerment', body: 'Together we rise — stronger, braver, unstoppable.' },
-] as const
-
-const TIMELINE = [
   {
-    title: 'Listen first',
-    body: 'We start with young people, families, and schools — what’s missing, what’s working, what feels safe.',
+    title: 'Inclusion',
+    body: 'Everyone belongs. Every voice matters.',
+    cta: { label: 'Find out more', to: '/programmes' },
+    icon: 'I' as const,
+    color: 'red' as const,
   },
   {
-    title: 'Co‑design',
-    body: 'Programmes are shaped with the community: language, rhythm, accessibility, and outcomes.',
+    title: 'Nurture',
+    body: 'We grow confidence and spark creativity.',
+    cta: { label: 'Find out more', to: '/programmes' },
+    icon: 'N' as const,
+    color: 'yellow' as const,
+    align: 'right' as const,
   },
   {
-    title: 'Deliver with care',
-    body: 'DBS‑checked staff, safeguarding training, and consistent facilitation that builds trust.',
+    title: 'Support',
+    body: 'A steady lift, a safe space to rise.',
+    cta: { label: 'Find out more', to: '/mental-health' },
+    icon: 'S' as const,
+    color: 'sky' as const,
   },
   {
-    title: 'Learn + improve',
-    body: 'We reflect on feedback and outcomes so support stays relevant — not generic.',
+    title: 'Empowerment',
+    body: 'Together we rise — stronger, braver, unstoppable.',
+    cta: { label: 'Support us', to: '/support' },
+    icon: 'E' as const,
+    color: 'charcoal' as const,
+    align: 'right' as const,
   },
-] as const
+]
 
 export const AboutPage = () => (
   <>
     <PageHero
-      backdrop="about"
-      eyebrow="About us"
-      title="Built for young people — held by community"
-      subtitle="Inspire Hub CIC exists so enrichment, wellbeing, and opportunity are never out of reach because of background or circumstance."
+      title="Built for young people"
+      image={IMAGES.heroProgrammes}
+      accent="red"
+      cta={{ label: 'Find out more', to: '/programmes' }}
+    >
+      <p>
+        Inspire Hub CIC exists so enrichment, wellbeing, and opportunity are never out of reach
+        because of background or circumstance.
+      </p>
+    </PageHero>
+
+    <CopyAbstractSection
+      eyebrow="Our vision"
+      body={
+        <p>
+          A future where every young person rises with confidence, held by community, guided by
+          opportunity, and free to imagine the life they deserve.
+        </p>
+      }
+      abstractLines={['Inspire', 'Believe', 'Achieve']}
     />
 
-    <ContentBand>
-      <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 lg:items-start">
-        <div>
-          <h2 className="font-display text-2xl font-semibold text-ink">Our story</h2>
-          <p className="mt-4 text-base leading-relaxed text-ink-muted">
-            We were founded with a simple belief: every young person deserves the chance to flourish. Too many face barriers that limit access to enrichment, wellbeing support, and positive opportunities — we exist to change that.
-          </p>
-        </div>
-        <TiltCard className="group rounded-3xl">
-          <div className="relative overflow-hidden rounded-3xl border border-border bg-surface-1 p-7 shadow-card">
-            <div
-              aria-hidden
-              className="pointer-events-none absolute -right-10 -top-10 h-44 w-44 rounded-full bg-linear-to-br from-brand-500/14 to-transparent blur-2xl"
-            />
-            <div className="relative flex items-center gap-2 text-brand-700">
-              <Sparkles className="h-5 w-5" aria-hidden />
-              <span className="text-xs font-semibold uppercase tracking-[0.18em]">Vision</span>
-            </div>
-            <p className="relative mt-3 text-lg font-medium leading-relaxed text-ink">
-              A future where every young person rises with confidence, held by community, guided by opportunity, and free to imagine the life they deserve — Inspire, Believe, Achieve.
-            </p>
-          </div>
-        </TiltCard>
-      </div>
+    <ContentBand surface="muted">
+      <h2 className="font-display text-3xl font-extrabold text-charcoal">Our story</h2>
+      <p className="mt-6 max-w-3xl text-base leading-relaxed text-ink-muted">
+        We were founded with a simple belief: every young person deserves the chance to flourish.
+        Too many face barriers that limit access to enrichment, wellbeing support, and positive
+        opportunities — we exist to change that.
+      </p>
+      <p className="mt-4 max-w-3xl text-base leading-relaxed text-ink-muted">
+        As a Community Interest Company, we reinvest all profits into programmes for disadvantaged
+        young people. Our team includes educators, youth workers, wellbeing practitioners, and
+        creative facilitators — all DBS-checked and trained in safeguarding.
+      </p>
     </ContentBand>
 
-    <ContentBand surface="1">
-      <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
-        <div className="lg:col-span-5">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-subtle">
-            How we work
-          </p>
-          <h2 className="mt-2 font-display text-2xl font-semibold tracking-tight text-ink">
-            A rhythm that builds trust
-          </h2>
-          <p className="mt-4 text-sm leading-relaxed text-ink-muted">
-            We don’t “drop in” with generic sessions. We build relationships, co‑design with the community, and deliver with consistency so young people feel safe enough to grow.
-          </p>
-        </div>
+    <section className="bg-white py-16 lg:py-20">
+      <div className="sb-container">
+        <h2 className="font-display text-3xl font-extrabold text-charcoal">Our values</h2>
+        <div className="mx-auto mt-12 max-w-4xl space-y-16">
+          {VALUES.map((v) => {
+            const reversed = v.align === 'right'
+            const bg =
+              v.color === 'red'
+                ? 'bg-red'
+                : v.color === 'yellow'
+                  ? 'bg-yellow'
+                  : v.color === 'sky'
+                    ? 'bg-sky'
+                    : 'bg-charcoal'
 
-        <div className="lg:col-span-7">
-          <div className="grid gap-4">
-            {TIMELINE.map((step, idx) => (
+            return (
               <div
-                key={step.title}
-                className="relative overflow-hidden rounded-3xl border border-border bg-surface-0 p-6 shadow-card"
+                key={v.title}
+                className={`grid items-center gap-8 md:grid-cols-2 ${reversed ? 'md:[&>*:first-child]:order-2' : ''}`}
               >
                 <div
-                  aria-hidden
-                  className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-brand-300/60 to-transparent"
-                />
-                <div className="flex items-start gap-4">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-600 text-sm font-bold text-white">
-                    {idx + 1}
-                  </span>
-                  <div>
-                    <h3 className="font-display text-lg font-semibold text-ink">
-                      {step.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-                      {step.body}
-                    </p>
-                  </div>
+                  className={`sb-leaf flex aspect-square max-w-[220px] items-center justify-center font-display text-5xl font-extrabold text-white ${bg} ${reversed ? 'md:ml-auto' : ''}`}
+                >
+                  {v.icon}
+                </div>
+                <div>
+                  <h3 className="font-display text-xl font-extrabold">{v.title}</h3>
+                  <p className="mt-3 text-ink-muted">{v.body}</p>
                 </div>
               </div>
-            ))}
-          </div>
+            )
+          })}
         </div>
       </div>
-    </ContentBand>
+    </section>
 
-    <ContentBand surface="1">
-      <h2 className="font-display text-2xl font-semibold text-ink">Mission & values</h2>
-      <p className="mt-4 max-w-3xl text-base leading-relaxed text-ink-muted">
-        Our mission is to inspire young people, nurture belief in their abilities, and create pathways for them to achieve their goals. Our values spell{' '}
-        <span className="font-semibold text-ink">INSPIRE</span>:
-      </p>
-      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {VALUES.map((v) => (
-          <MagicCard key={v.title} className="rounded-2xl">
-            <div className="group relative overflow-hidden rounded-2xl border border-border bg-surface-0 p-5 shadow-soft transition hover:shadow-card">
-              <BorderBeam
-                borderWidth={1}
-                size={52}
-                durationSeconds={6.6}
-                delaySeconds={v.title.length % 4}
-                colorFrom="#2563eb"
-                colorTo="#f97316"
-              />
-              <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-brand-600 text-sm font-bold text-white">
-                {v.letter}
-              </span>
-              <h3 className="mt-3 font-display text-lg font-semibold text-ink">{v.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-muted">{v.body}</p>
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-brand-300/60 to-transparent opacity-0 transition group-hover:opacity-100"
-              />
-            </div>
-          </MagicCard>
-        ))}
-      </div>
-    </ContentBand>
-
-    <ContentBand>
-      <div className="grid gap-10 lg:grid-cols-3">
-        <div className="rounded-3xl border border-border bg-linear-to-b from-brand-50 to-surface-0 p-6 shadow-card">
-          <BadgeCheck className="h-8 w-8 text-brand-600" aria-hidden />
-          <h3 className="mt-4 font-display text-lg font-semibold text-ink">Meet the team</h3>
-          <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-            Educators, youth workers, wellbeing practitioners, coaches, and creative facilitators — all DBS‑checked and trained in safeguarding and inclusive delivery.
-          </p>
-        </div>
-        <div className="rounded-3xl border border-border bg-surface-1 p-6 shadow-card lg:col-span-2">
-          <Heart className="h-8 w-8 text-coral-500" aria-hidden />
-          <h3 className="mt-4 font-display text-lg font-semibold text-ink">CIC structure</h3>
-          <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-            As a Community Interest Company, we reinvest profits into programmes for disadvantaged young people — prioritising transparency, accountability, and long‑term change. We partner with schools, charities, local authorities, and community organisations who share our vision for equality of access.
-          </p>
-        </div>
-      </div>
-    </ContentBand>
+    <LinkCardsSection
+      cards={[
+        { title: 'Our programmes', image: IMAGES.discover2, to: '/programmes' },
+        { title: 'Support us', image: IMAGES.discover1, to: '/support' },
+      ]}
+    />
 
     <CTABand
-      title="See our work in action"
-      body="Explore programmes, read stories, or reach out to collaborate."
-      primary={{ label: 'View programmes', to: '/programmes' }}
-      secondary={{ label: 'See impact', to: '/impact' }}
+      title="Partner with a youth-first CIC"
+      body="Whether you're a school, a funder, or a neighbour — we'll co-design programmes that meet local need."
+      primary={{ label: 'Contact us', to: '/contact' }}
+      secondary={{ label: 'Support our work', to: '/support' }}
     />
   </>
 )

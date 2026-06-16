@@ -1,126 +1,150 @@
 @import 'tailwindcss';
 
-/* Inspire Hub — light-only design system (palette inspired by logo: blues, coral, teal, violet) */
+/* Inspire Hub — Sport Birmingham–inspired design system */
 @theme {
-  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
-  --font-display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Nunito Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Nunito Sans', ui-sans-serif, system-ui, sans-serif;
 
+  --color-charcoal: #373a36;
+  --color-charcoal-light: #4a4e49;
+  --color-sky: #69b3e7;
+  --color-sky-dark: #4a9fd4;
+  --color-red: #ef3340;
+  --color-red-dark: #d42b37;
+  --color-yellow: #ffb600;
+  --color-yellow-dark: #e6a400;
+  --color-white: #ffffff;
+  --color-off-white: #f5f5f5;
+  --color-ink: #373a36;
+  --color-ink-muted: #5c605c;
+  --color-border: #e4e4e4;
+
+  /* Legacy aliases for pages not yet migrated */
   --color-brand-50: #eff6ff;
   --color-brand-100: #dbeafe;
   --color-brand-200: #bfdbfe;
-  --color-brand-500: #3b82f6;
+  --color-brand-300: #93c5fd;
   --color-brand-600: #2563eb;
   --color-brand-700: #1d4ed8;
-
-  --color-warm-50: #fff7ed;
-  --color-warm-100: #ffedd5;
-  --color-warm-400: #fb923c;
-  --color-warm-500: #f97316;
-
-  --color-coral-400: #fb7185;
-  --color-coral-500: #f43f5e;
-
-  --color-teal-400: #2dd4bf;
-  --color-teal-500: #14b8a6;
-  --color-teal-600: #0d9488;
-
-  --color-violet-400: #a78bfa;
-  --color-violet-500: #8b5cf6;
-  --color-violet-600: #7c3aed;
-
   --color-surface-0: #ffffff;
-  --color-surface-1: #fafbfc;
-  --color-surface-2: #f1f5f9;
-  --color-surface-3: #e8eef5;
-
-  --color-ink: #0f172a;
-  --color-ink-muted: #64748b;
+  --color-surface-1: #f5f5f5;
+  --color-surface-2: #ececec;
   --color-ink-subtle: #94a3b8;
+  --color-coral-500: #ef3340;
+  --color-warm-500: #ffb600;
+  --color-violet-600: #7c3aed;
+  --color-teal-500: #14b8a6;
 
-  --color-border: #e2e8f0;
-  --color-border-strong: #cbd5e1;
+  --radius-leaf: 1.5rem 15rem 1.5rem 15rem;
+  --radius-card: 0 2rem 0 2rem;
 
-  --radius-sm: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.25rem;
-  --radius-2xl: 1.5rem;
-  --radius-3xl: 2rem;
-
-  --shadow-soft: 0 1px 2px rgba(15, 23, 42, 0.05);
-  --shadow-card:
-    0 4px 6px -1px rgba(15, 23, 42, 0.06), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
-  --shadow-float:
-    0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.05);
-  --shadow-glow: 0 0 0 1px rgba(37, 99, 235, 0.08), 0 12px 40px -12px rgba(37, 99, 235, 0.25);
+  --shadow-soft: 0 2px 8px rgba(55, 58, 54, 0.08);
 }
 
 @layer base {
   html {
     color-scheme: only light;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-surface-1 font-sans text-ink;
+    @apply bg-white font-sans text-ink;
     margin: 0;
     min-height: 100%;
-    width: 100%;
     overflow-x: clip;
   }
 
   #root {
-    @apply flex min-h-dvh w-full max-w-full flex-col;
-    box-sizing: border-box;
+    @apply flex min-h-dvh w-full flex-col;
   }
 
   ::selection {
-    @apply bg-brand-200/80 text-ink;
+    background: #69b3e7;
+    color: #fff;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display font-bold tracking-tight;
   }
 }
 
 :focus-visible {
-  @apply outline-none ring-2 ring-brand-600 ring-offset-2 ring-offset-surface-0;
+  @apply outline-none ring-2 ring-sky ring-offset-2 ring-offset-white;
 }
 
-@layer utilities {
-  @keyframes accordion-down {
-    from {
-      height: 0;
-    }
-    to {
-      height: var(--radix-accordion-content-height);
-    }
+@layer components {
+  .sb-container {
+    @apply mx-auto w-full max-w-[1280px] px-5 sm:px-8 lg:px-10;
   }
-  @keyframes accordion-up {
-    from {
-      height: var(--radix-accordion-content-height);
-    }
-    to {
-      height: 0;
-    }
-  }
-}
 
-@theme inline {
-  --animate-marquee: marquee var(--duration, 40s) infinite linear;
-  --animate-marquee-vertical: marquee-vertical var(--duration, 40s) linear infinite;
+  .sb-btn-outline {
+    @apply inline-flex cursor-pointer items-center gap-2 border-2 border-charcoal bg-transparent px-6 py-3 text-sm font-bold text-charcoal transition-all duration-300 hover:bg-charcoal hover:text-white;
+  }
 
-  @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(calc(-100% - var(--gap, 1rem)));
+  .sb-btn-outline--light {
+    @apply border-white text-white hover:bg-white hover:text-charcoal;
+  }
+
+  .sb-btn-outline--on-dark {
+    @apply border-white/80 text-white hover:border-white hover:bg-white hover:text-charcoal;
+  }
+
+  .sb-leaf {
+    border-radius: var(--radius-leaf);
+  }
+
+  .sb-curved-image {
+    border-radius: 0 2rem 0 2rem;
+  }
+
+  .sb-hero-image-clip {
+    clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  @media (max-width: 1023px) {
+    .sb-hero-image-clip {
+      clip-path: none;
     }
   }
-  @keyframes marquee-vertical {
-    from {
-      transform: translateY(0);
+
+  .sb-diagonal-top {
+    position: relative;
+  }
+
+  .sb-diagonal-top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4rem;
+    background: inherit;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%);
+    transform: translateY(-99%);
+    z-index: 1;
+  }
+
+  .sb-newsletter-split {
+    background: linear-gradient(135deg, #ffb600 0%, #ffb600 55%, #69b3e7 55%, #69b3e7 100%);
+  }
+
+  @media (max-width: 767px) {
+    .sb-newsletter-split {
+      background: linear-gradient(180deg, #ffb600 0%, #ffb600 50%, #69b3e7 50%, #69b3e7 100%);
     }
-    to {
-      transform: translateY(calc(-100% - var(--gap, 1rem)));
-    }
+  }
+
+  .newsletter-sidebar a svg {
+    transition: transform 0.2s linear;
+  }
+
+  .newsletter-sidebar:hover a svg {
+    transform: translateX(4px);
   }
 }

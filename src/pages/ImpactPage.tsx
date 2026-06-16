@@ -6,6 +6,7 @@ import { Testimonials } from '../components/home/Testimonials'
 import { ImpactStats } from '../components/home/ImpactStats'
 import { AnimatedList } from '../components/ui/AnimatedList'
 import { MagicCard } from '../components/ui/MagicCard'
+import { IMAGES } from '../lib/site'
 
 const STRIPS = [
   {
@@ -33,11 +34,16 @@ const STRIPS = [
 export const ImpactPage = () => (
   <>
     <PageHero
-      backdrop="impact"
-      eyebrow="Impact & stories"
       title="Evidence, stories, and accountability"
-      subtitle="We measure what matters: confidence, connection, and access — alongside the human stories that numbers can never fully capture."
-    />
+      image={IMAGES.card2}
+      accent="red"
+      cta={{ label: 'Support our work', to: '/support' }}
+    >
+      <p>
+        We measure what matters: confidence, connection, and access — alongside the human stories
+        that numbers can never fully capture.
+      </p>
+    </PageHero>
 
     <ImpactStats />
 

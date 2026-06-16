@@ -5,7 +5,7 @@ import { ContentBand } from '../components/sections/ContentBand'
 import { AnimatedList } from '../components/ui/AnimatedList'
 import { Button } from '../components/ui/Button'
 import { MagicCard } from '../components/ui/MagicCard'
-import { SITE } from '../lib/site'
+import { IMAGES, SITE } from '../lib/site'
 
 export const ContactPage = () => {
   const [sent, setSent] = useState(false)
@@ -18,10 +18,16 @@ export const ContactPage = () => {
   return (
     <>
       <PageHero
-        eyebrow="Contact"
         title="We respond within two working days"
-        subtitle="Share your enquiry — safeguarding, partnerships, programmes, or press. We’ll route it to the right person."
-      />
+        image={IMAGES.community}
+        accent="sky"
+        showDiscover={false}
+      >
+        <p>
+          Share your enquiry — safeguarding, partnerships, programmes, donations, or press. We'll
+          route it to the right person.
+        </p>
+      </PageHero>
 
       <ContentBand>
         <div className="grid gap-10 lg:grid-cols-5 lg:gap-16">

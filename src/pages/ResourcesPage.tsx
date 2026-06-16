@@ -1,4 +1,4 @@
-import { BookOpen, Download, Film, HeartPulse, Sparkles } from 'lucide-react'
+import { BookOpen, Download, Film, HeartPulse } from 'lucide-react'
 import type { ComponentType } from 'react'
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
@@ -11,6 +11,7 @@ import { MagicCard } from '../components/ui/MagicCard'
 import { TiltCard } from '../components/ui/TiltCard'
 import { TabsContent, TabsList, TabsRoot, TabsTrigger } from '../components/ui/Tabs'
 import { cn } from '../lib/cn'
+import { IMAGES } from '../lib/site'
 
 type ResourceType = 'Guides' | 'Worksheets' | 'Videos'
 
@@ -100,26 +101,12 @@ export const ResourcesPage = () => {
   return (
     <>
       <PageHero
-        backdrop="resources"
-        eyebrow="Resources hub"
-        title="Tools young people can actually use"
-        subtitle="Practical, hopeful resources — clear, non‑judgemental, and easy to revisit."
+        title="Tools young people can use"
+        image={IMAGES.card3}
+        accent="sky"
+        cta={{ label: 'Mental health support', to: '/mental-health' }}
       >
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-          <Link
-            to="/mental-health"
-            className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-brand-700"
-          >
-            Mental health support
-            <Sparkles className="h-4 w-4" aria-hidden />
-          </Link>
-          <Link
-            to="/contact"
-            className="inline-flex cursor-pointer items-center justify-center rounded-xl border border-border bg-surface-0 px-6 py-3 text-sm font-semibold text-ink shadow-soft transition hover:border-brand-200 hover:bg-brand-50"
-          >
-            Request tailored resources
-          </Link>
-        </div>
+        <p>Practical, hopeful resources — clear, non-judgemental, and easy to revisit.</p>
       </PageHero>
 
       <ContentBand>
@@ -258,7 +245,7 @@ export const ResourcesPage = () => {
         </div>
       </Lightbox>
 
-      <ContentBand surface="1">
+      <ContentBand surface="muted">
         <div className="grid gap-8 lg:grid-cols-3 lg:items-start">
           <div className="rounded-3xl border border-border bg-surface-0 p-7 shadow-card lg:col-span-2">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-subtle">

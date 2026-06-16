@@ -1,61 +1,101 @@
-import { Building2, HandHeart, Sparkles } from 'lucide-react'
 import { useMemo, useState } from 'react'
-import { PageHero } from '../components/sections/PageHero'
-import { ContentBand } from '../components/sections/ContentBand'
+import { Building2, HandHeart, Sparkles } from 'lucide-react'
 import { CTABand } from '../components/sections/CTABand'
-import { ButtonLink } from '../components/ui/Button'
-import { BentoCard, BentoGrid } from '../components/ui/BentoGrid'
-import { Marquee } from '../components/ui/Marquee'
+import { LinkCardsSection } from '../components/sections/LinkCardsSection'
+import { PageHero } from '../components/sections/PageHero'
+import { PageLinkList } from '../components/sections/PageLinkList'
 import { cn } from '../lib/cn'
+import { IMAGES } from '../lib/site'
+import { OutlineButtonLink } from '../components/ui/OutlineButton'
+
+const AMOUNTS = [15, 30, 60, 120] as const
 
 const WAYS = [
-  {
-    title: 'Donate',
-    body: 'Your support helps us remove barriers and create opportunities for disadvantaged young people.',
-    icon: Sparkles,
-    cta: 'Talk to us about giving',
-    to: '/contact',
-  },
   {
     title: 'Volunteer',
     body: 'Join sessions, events, and mentoring programmes — training and safeguarding included.',
     icon: HandHeart,
     cta: 'Offer your time',
     to: '/contact',
+    color: 'yellow' as const,
+    align: 'right' as const,
   },
   {
     title: 'Corporate support',
-    body: 'CSR partnerships that align with community impact and measurable youth outcomes.',
+    body: 'CSR partnerships aligned with community impact and measurable youth outcomes.',
     icon: Building2,
     cta: 'Explore partnership',
     to: '/contact',
+    color: 'sky' as const,
+    align: undefined,
   },
 ] as const
 
 export const SupportPage = () => (
   <>
     <PageHero
-      backdrop="support"
-      eyebrow="Support us"
-      title="Invest in young people — with impact you can see"
-      subtitle="As a CIC, reinvestment is our promise. Every partnership is designed to expand access, not box‑tick."
+      title="Support young people"
+      image={IMAGES.heroSupport}
+      accent="yellow"
+      cta={{ label: 'Talk to us about giving', to: '/contact' }}
+    >
+      <p>
+        Your support helps us remove barriers and create opportunities for disadvantaged young
+        people across Birmingham and the West Midlands.
+      </p>
+      <p>As a CIC, every penny is reinvested into programmes — with transparency you can trust.</p>
+    </PageHero>
+
+    <section className="bg-sky py-16 lg:py-20">
+      <div className="sb-container grid items-center gap-12 lg:grid-cols-2">
+        <div>
+          <h2 className="font-display text-3xl font-extrabold text-charcoal">Choose an amount</h2>
+          <p className="mt-4 text-base leading-relaxed text-charcoal/80">
+            Pick a starting point — we'll show you what your gift could fund. Monthly giving helps
+            us plan sessions with zero cost barriers for young people.
+          </p>
+        </div>
+        <DonatePicker />
+      </div>
+    </section>
+
+    <PageLinkList
+      title="Other ways to help"
+      items={[
+        {
+          title: 'Donate',
+          body: 'One-off or monthly gifts that fund materials, sessions, and inclusive programme delivery.',
+          cta: { label: 'Talk to us about giving', to: '/contact' },
+          icon: Sparkles,
+          color: 'red',
+        },
+        ...WAYS.map((w) => ({
+          title: w.title,
+          body: w.body,
+          cta: { label: w.cta, to: w.to },
+          icon: w.icon,
+          color: w.color,
+          ...(w.align ? { align: w.align } : {}),
+        })),
+      ]}
     />
 
-    <ContentBand>
-      <SupportInteractive />
-    </ContentBand>
+    <LinkCardsSection
+      cards={[
+        { title: 'See our impact', image: IMAGES.card2, to: '/impact' },
+        { title: 'Read our policies', image: IMAGES.card3, to: '/policies' },
+      ]}
+    />
 
     <CTABand
       title="Prefer a quick call?"
-      body="We’ll walk through partnership options, safeguarding, and reporting — no jargon."
-      primary={{ label: 'Contact', to: '/contact' }}
+      body="We'll walk through giving options, Gift Aid, safeguarding, and reporting — no jargon."
+      primary={{ label: 'Contact us', to: '/contact' }}
     />
   </>
 )
 
-const AMOUNTS = [15, 30, 60, 120] as const
-
-const SupportInteractive = () => {
+const DonatePicker = () => {
   const [amount, setAmount] = useState<(typeof AMOUNTS)[number]>(30)
 
   const impactLine = useMemo(() => {
@@ -66,81 +106,29 @@ const SupportInteractive = () => {
   }, [amount])
 
   return (
-    <div className="space-y-10">
-      <Marquee pauseOnHover className="rounded-3xl border border-border bg-surface-0 shadow-soft [--duration:28s]">
-        {[
-          'Monthly giving',
-          'CSR partnership',
-          'Volunteer hours',
-          'Sponsored event',
-          'In-kind support',
-          'Mentoring',
-          'Room hire',
-          'Equipment',
-        ].map((t) => (
-          <span
-            key={t}
-            className="inline-flex items-center rounded-full border border-border bg-surface-1 px-4 py-2 text-xs font-semibold tracking-tight text-ink-muted shadow-soft"
+    <div className="bg-white p-8 shadow-soft">
+      <div className="flex flex-wrap gap-2">
+        {AMOUNTS.map((a) => (
+          <button
+            key={a}
+            type="button"
+            aria-label={`Select £${a} amount`}
+            onClick={() => setAmount(a)}
+            className={cn(
+              'cursor-pointer border-2 px-5 py-3 text-sm font-bold transition',
+              a === amount
+                ? 'border-charcoal bg-charcoal text-white'
+                : 'border-border bg-white text-charcoal hover:border-charcoal',
+            )}
           >
-            {t}
-          </span>
+            £{a}
+          </button>
         ))}
-      </Marquee>
-
-      <BentoGrid>
-        <BentoCard
-          className="md:col-span-4"
-          eyebrow="Give"
-          title="Choose an amount — see the impact"
-          description="Pick a starting point. We’ll tailor a transparent plan for where support goes."
-          icon={<Sparkles className="h-5 w-5" aria-hidden />}
-          background={
-            <div className="h-full w-full bg-[radial-gradient(circle_at_20%_20%,rgba(249,115,22,0.14),transparent_42%),radial-gradient(circle_at_90%_10%,rgba(37,99,235,0.10),transparent_40%)]" />
-          }
-          footer={
-            <div className="space-y-4">
-              <div className="flex flex-wrap gap-2">
-                {AMOUNTS.map((a) => (
-                  <button
-                    key={a}
-                    type="button"
-                    aria-label={`Select £${a} amount`}
-                    onClick={() => setAmount(a)}
-                    className={cn(
-                      'inline-flex cursor-pointer items-center justify-center rounded-xl border px-4 py-2 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-0',
-                      a === amount
-                        ? 'border-brand-200 bg-brand-50 text-brand-700'
-                        : 'border-border bg-surface-0 text-ink hover:border-brand-200 hover:bg-brand-50/60',
-                    )}
-                  >
-                    £{a}
-                  </button>
-                ))}
-              </div>
-              <p className="text-sm leading-relaxed text-ink-muted">{impactLine}</p>
-              <ButtonLink to="/contact" variant="primary" className="w-full justify-center sm:w-auto">
-                Talk to us about giving
-              </ButtonLink>
-            </div>
-          }
-        />
-
-        {WAYS.slice(1).map((w) => (
-          <BentoCard
-            key={w.title}
-            className="md:col-span-2"
-            eyebrow="Get involved"
-            title={w.title}
-            description={w.body}
-            icon={<w.icon className="h-5 w-5" aria-hidden />}
-            footer={
-              <ButtonLink to={w.to} variant="outline" className="w-full justify-center">
-                {w.cta}
-              </ButtonLink>
-            }
-          />
-        ))}
-      </BentoGrid>
+      </div>
+      <p className="mt-5 text-sm leading-relaxed text-ink-muted">{impactLine}</p>
+      <div className="mt-6">
+        <OutlineButtonLink to="/contact">Talk to us about giving</OutlineButtonLink>
+      </div>
     </div>
   )
 }
