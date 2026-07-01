@@ -1,27 +1,24 @@
 import type { ReactNode } from 'react'
+import { usePageAccent } from '../../hooks/usePageAccent'
 import { ScrollToTop } from './ScrollToTop'
 import { SiteFooter } from './SiteFooter'
 import { SiteHeader } from './SiteHeader'
-import { SubNav } from './SubNav'
-import { NewsletterTab } from './NewsletterTab'
-import { NewsletterSection } from '../sections/NewsletterSection'
+import { TopBar } from './TopBar'
 
 type SiteLayoutProps = {
   children: ReactNode
-  hideNewsletter?: boolean
 }
 
-export const SiteLayout = ({ children, hideNewsletter }: SiteLayoutProps) => (
-  <>
-    <ScrollToTop />
-    <div id="top" />
-    <SiteHeader />
-    <SubNav />
-    <main id="main-content" className="flex-1">
-      {children}
-    </main>
-    {hideNewsletter ? null : <NewsletterSection />}
-    <SiteFooter />
-    <NewsletterTab />
-  </>
-)
+export const SiteLayout = ({ children }: SiteLayoutProps) => {
+  usePageAccent()
+
+  return (
+    <>
+      <ScrollToTop />
+      <TopBar />
+      <SiteHeader />
+      <main className="flex flex-1 flex-col">{children}</main>
+      <SiteFooter />
+    </>
+  )
+}

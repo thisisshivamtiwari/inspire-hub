@@ -1,121 +1,49 @@
-import { FileCheck, Heart, Lock, Scale, ShieldAlert, UserCheck } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import { PageHero } from '../components/sections/PageHero'
-import { ContentBand } from '../components/sections/ContentBand'
-import { BorderBeam } from '../components/ui/BorderBeam'
-import { MagicCard } from '../components/ui/MagicCard'
-import { StickySubnav } from '../components/ui/StickySubnav'
-import { IMAGES } from '../lib/site'
+import { Callout, PageBanner, Section } from '../components/sections/IHSections'
 
 const POLICIES = [
-  {
-    id: 'safeguarding',
-    title: 'Safeguarding policy',
-    body: 'How we protect young people and respond to concerns — roles, reporting, and escalation.',
-    icon: ShieldAlert,
-  },
-  {
-    id: 'child-protection',
-    title: 'Child protection statement',
-    body: 'Our commitment to the safety and wellbeing of every child and young person we work with.',
-    icon: Heart,
-  },
-  {
-    id: 'privacy',
-    title: 'Privacy & GDPR',
-    body: 'We collect only what we need, store it responsibly, and respect your rights.',
-    icon: Lock,
-  },
-  {
-    id: 'conduct',
-    title: 'Code of conduct',
-    body: 'Expectations for staff, volunteers, and participants — respect, inclusion, and accountability.',
-    icon: UserCheck,
-  },
-  {
-    id: 'complaints',
-    title: 'Complaints procedure',
-    body: 'Transparent, accessible steps if something doesn’t feel right — we take concerns seriously.',
-    icon: Scale,
-  },
-  {
-    id: 'consent',
-    title: 'Consent information',
-    body: 'Informed consent for activities, media, and data collection — explained in plain language.',
-    icon: FileCheck,
-  },
-] as const
+  { title: 'Safeguarding Policy', body: 'Our full safeguarding policy outlines how we protect young people and respond to concerns. The full document is available on request.' },
+  { title: 'Child Protection Statement', body: 'We are committed to the safety and wellbeing of every child and young person we work with. All staff are DBS-checked and trained in safeguarding.' },
+  { title: 'Privacy & GDPR', body: 'We handle all data in accordance with GDPR and only collect what is necessary to deliver our services and keep young people safe.' },
+  { title: 'Code of Conduct', body: 'All staff, volunteers and participants are expected to follow our code of conduct, which sets clear expectations for respectful, safe behaviour.' },
+  { title: 'Complaints Procedure', body: 'We take all concerns seriously. Our complaints process is transparent and accessible, and we aim to resolve issues fairly and promptly.' },
+  { title: 'Consent Information', body: 'We obtain informed consent for all activities, media and data collection, and explain clearly how information will be used.' },
+]
 
 export const PoliciesPage = () => (
   <>
-    <PageHero
-      title="Trust is built on clarity"
-      image={IMAGES.card3}
-      accent="charcoal" 
-      showDiscover={false}
-    >
-      <p>
-        Safeguarding and data protection are foundational — not a footnote. Full policy documents
-        are available on request.
-      </p>
-    </PageHero>
+    <PageBanner
+      title="Policies"
+      subtitle="We are committed to the safety and wellbeing of every child and young person we work with. Our policies are transparent and accessible."
+      breadcrumb={[
+        { label: 'Home', to: '/' },
+        { label: 'Resources' },
+        { label: 'Policies' },
+      ]}
+    />
 
-    <ContentBand>
-      <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
-        <StickySubnav
-          className="hidden lg:block lg:col-span-4"
-          items={POLICIES.map((p) => ({
-            id: p.id,
-            label: p.title,
-            description: 'Jump to section',
-          }))}
-        />
-
-        <div className="lg:col-span-8">
-          <div className="grid gap-5">
-            {POLICIES.map((p, idx) => (
-              <MagicCard key={p.id} className="rounded-3xl">
-                <article
-                  id={p.id}
-                  className="group relative scroll-mt-28 overflow-hidden rounded-3xl border border-border bg-surface-1 p-6 shadow-card"
-                >
-                  {idx === 0 ? (
-                    <BorderBeam
-                      borderWidth={1}
-                      size={64}
-                      durationSeconds={6.5}
-                      colorFrom="#2563eb"
-                      colorTo="#14b8a6"
-                    />
-                  ) : null}
-
-                  <div className="flex items-start gap-4">
-                    <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-brand-50 text-brand-700 ring-1 ring-brand-100">
-                      <p.icon className="h-5 w-5" aria-hidden />
-                    </div>
-                    <div>
-                      <h2 className="font-display text-lg font-semibold text-ink">{p.title}</h2>
-                      <p className="mt-2 text-sm leading-relaxed text-ink-muted">{p.body}</p>
-                      <p className="mt-4 text-sm text-ink-subtle">
-                        Request the full document via{' '}
-                        <Link to="/contact" className="font-semibold text-brand-600 hover:text-brand-700">
-                          contact
-                        </Link>
-                        .
-                      </p>
-                    </div>
-                  </div>
-
-                  <div
-                    aria-hidden
-                    className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-brand-300/60 to-transparent opacity-0 transition group-hover:opacity-100"
-                  />
-                </article>
-              </MagicCard>
-            ))}
-          </div>
-        </div>
+    <Section>
+      <div className="mx-auto max-w-3xl">
+        {POLICIES.map((p, i) => (
+          <details key={p.title} className="ih-acc" open={i === 0}>
+            <summary>{p.title}</summary>
+            <div className="ih-acc-body">{p.body}</div>
+          </details>
+        ))}
       </div>
-    </ContentBand>
+    </Section>
+
+    <Section className="section-mist">
+      <Callout>
+        <h3 className="font-display text-lg font-bold">Request a full policy document</h3>
+        <p className="mt-2 text-grey">
+          To request the full version of any policy, please{' '}
+          <Link to="/contact" className="font-bold" style={{ color: 'var(--accent)' }}>
+            contact our team
+          </Link>
+          .
+        </p>
+      </Callout>
+    </Section>
   </>
 )

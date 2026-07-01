@@ -1,83 +1,66 @@
-import { Mountain, Trophy, Waves } from 'lucide-react'
-import { PageHero } from '../components/sections/PageHero'
-import { ContentBand } from '../components/sections/ContentBand'
-import { CTABand } from '../components/sections/CTABand'
-import { BorderBeam } from '../components/ui/BorderBeam'
-import { MagicCard } from '../components/ui/MagicCard'
+import { Link } from 'react-router-dom'
+import { PageBanner, Section, SectionHead, SplitSection } from '../components/sections/IHSections'
+import { IHCard } from '../components/ui/IHCard'
+import { Stagger, StaggerItem } from '../components/ui/Stagger'
 import { IMAGES } from '../lib/site'
-
-const CARDS = [
-  {
-    title: 'Sports programmes',
-    body: 'Inclusive football, basketball, rugby, and multi‑sports — fun, teamwork, and personal growth.',
-    icon: Trophy,
-    blob: 'bg-gradient-to-br from-brand-500/15 to-brand-600/5',
-  },
-  {
-    title: 'Fitness for wellbeing',
-    body: 'Gentle, accessible sessions that promote body positivity, self‑care, and mental clarity.',
-    icon: Waves,
-    blob: 'bg-gradient-to-br from-teal-500/15 to-teal-600/5',
-  },
-  {
-    title: 'Residentials',
-    body: 'Holiday programmes that blend movement, creativity, and social connection in safe environments.',
-    icon: Mountain,
-    blob: 'bg-gradient-to-br from-violet-500/15 to-violet-600/5',
-  },
-] as const
 
 export const PhysicalHealthPage = () => (
   <>
-    <PageHero
-      title="Movement that builds confidence"
-      image={IMAGES.wellbeing}
-      accent="yellow"
-      cta={{ label: 'See programmes', to: '/programmes' }}
-    >
-      <p>
-        Physical activity reduces stress, supports wellbeing, and helps young people build healthy
-        habits for life.
-      </p>
-    </PageHero>
-
-    <ContentBand>
-      <div className="grid gap-5 md:grid-cols-3">
-        {CARDS.map((c) => (
-          <MagicCard key={c.title} className="rounded-3xl">
-            <div className="group relative overflow-hidden rounded-3xl border border-border bg-surface-0 p-6 shadow-card transition hover:-translate-y-1 hover:shadow-float">
-              <BorderBeam
-                borderWidth={1}
-                size={54}
-                durationSeconds={6.2}
-                delaySeconds={c.title.length % 3}
-                colorFrom="#14b8a6"
-                colorTo="#2563eb"
-              />
-              <div
-                className={`pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full ${c.blob} blur-2xl`}
-                aria-hidden
-              />
-              <c.icon className="relative h-8 w-8 text-brand-600" aria-hidden />
-              <h3 className="relative mt-4 font-display text-lg font-semibold text-ink">
-                {c.title}
-              </h3>
-              <p className="relative mt-2 text-sm leading-relaxed text-ink-muted">{c.body}</p>
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-brand-300/60 to-transparent opacity-0 transition group-hover:opacity-100"
-              />
-            </div>
-          </MagicCard>
-        ))}
-      </div>
-    </ContentBand>
-
-    <CTABand
-      title="Bring sport & wellbeing to your group"
-      body="We partner with schools and community organisations to deliver inclusive activity programmes."
-      primary={{ label: 'Get in touch', to: '/contact' }}
-      secondary={{ label: 'See all programmes', to: '/programmes' }}
+    <PageBanner
+      title="Physical Health & Activity"
+      subtitle="Movement is a powerful tool for wellbeing. Our programmes help young people build confidence, reduce stress and develop healthy habits."
+      breadcrumb={[
+        { label: 'Home', to: '/' },
+        { label: 'Wellbeing' },
+        { label: 'Physical Health & Activity' },
+      ]}
     />
+
+    <Section>
+      <SectionHead
+        eyebrow="Why it matters"
+        title="Confidence, calm and healthy habits"
+        body="Physical activity supports mental clarity as much as physical health. Our sessions are built around fun, teamwork and personal growth — never competition for its own sake."
+      />
+    </Section>
+
+    <Section className="section-mist">
+      <SectionHead eyebrow="Sports programmes" title="Inclusive sessions for everyone" />
+      <Stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <StaggerItem><IHCard icon="⚽" title="Football" body="Inclusive, fun sessions focused on teamwork." color="orange" /></StaggerItem>
+        <StaggerItem><IHCard icon="🏀" title="Basketball" body="Skills, movement and confidence on court." color="pink" /></StaggerItem>
+        <StaggerItem><IHCard icon="🏉" title="Rugby" body="Teamwork, respect and personal growth." color="blue" /></StaggerItem>
+        <StaggerItem><IHCard icon="🤸" title="Multi-sports" body="A bit of everything — fun and variety." color="lime" /></StaggerItem>
+      </Stagger>
+    </Section>
+
+    <SplitSection reverse image={IMAGES.harnesses} imageAlt="Young people getting ready for an outdoor activity">
+      <span className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--accent)' }}>
+        Fitness for wellbeing
+      </span>
+      <h2 className="mt-2 font-display text-2xl font-black md:text-3xl">
+        Gentle, accessible, body-positive
+      </h2>
+      <p className="mt-4 text-grey">
+        Fitness sessions that promote body positivity, self-care and mental clarity — accessible for
+        every ability and designed to feel good, not intimidating.
+      </p>
+    </SplitSection>
+
+    <SplitSection image={IMAGES.campfire} imageAlt="A campfire on a residential evening">
+      <span className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--accent)' }}>
+        Residentials
+      </span>
+      <h2 className="mt-2 font-display text-2xl font-black md:text-3xl">
+        Active, enriching holiday programmes
+      </h2>
+      <p className="mt-4 text-grey">
+        Safe, active and enriching holiday programmes that combine movement, creativity and social
+        connection — giving young people new experiences and lasting friendships.
+      </p>
+      <Link to="/events" className="btn btn-accent mt-6 inline-flex">
+        See upcoming residentials
+      </Link>
+    </SplitSection>
   </>
 )

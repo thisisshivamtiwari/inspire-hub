@@ -1,130 +1,82 @@
-import { CopyAbstractSection } from '../components/sections/CopyAbstractSection'
-import { ContentBand } from '../components/sections/ContentBand'
-import { CTABand } from '../components/sections/CTABand'
-import { LinkCardsSection } from '../components/sections/LinkCardsSection'
-import { PageHero } from '../components/sections/PageHero'
+import {
+  InspireGrid,
+  PageBanner,
+  Section,
+  SectionHead,
+  SplitSection,
+} from '../components/sections/IHSections'
+import { IHCard } from '../components/ui/IHCard'
+import { Stagger, StaggerItem } from '../components/ui/Stagger'
 import { IMAGES } from '../lib/site'
-
-const VALUES = [
-  {
-    title: 'Inclusion',
-    body: 'Everyone belongs. Every voice matters.',
-    cta: { label: 'Find out more', to: '/programmes' },
-    icon: 'I' as const,
-    color: 'red' as const,
-  },
-  {
-    title: 'Nurture',
-    body: 'We grow confidence and spark creativity.',
-    cta: { label: 'Find out more', to: '/programmes' },
-    icon: 'N' as const,
-    color: 'yellow' as const,
-    align: 'right' as const,
-  },
-  {
-    title: 'Support',
-    body: 'A steady lift, a safe space to rise.',
-    cta: { label: 'Find out more', to: '/mental-health' },
-    icon: 'S' as const,
-    color: 'sky' as const,
-  },
-  {
-    title: 'Empowerment',
-    body: 'Together we rise — stronger, braver, unstoppable.',
-    cta: { label: 'Support us', to: '/support' },
-    icon: 'E' as const,
-    color: 'charcoal' as const,
-    align: 'right' as const,
-  },
-]
 
 export const AboutPage = () => (
   <>
-    <PageHero
-      title="Built for young people"
-      image={IMAGES.heroProgrammes}
-      accent="red"
-      cta={{ label: 'Find out more', to: '/programmes' }}
-    >
-      <p>
-        Inspire Hub CIC exists so enrichment, wellbeing, and opportunity are never out of reach
-        because of background or circumstance.
-      </p>
-    </PageHero>
-
-    <CopyAbstractSection
-      eyebrow="Our vision"
-      body={
-        <p>
-          A future where every young person rises with confidence, held by community, guided by
-          opportunity, and free to imagine the life they deserve.
-        </p>
-      }
-      abstractLines={['Inspire', 'Believe', 'Achieve']}
+    <PageBanner
+      title="About Us"
+      subtitle="Every young person deserves the chance to flourish, regardless of their background or circumstances. We exist to change what holds them back."
+      breadcrumb={[{ label: 'Home', to: '/' }, { label: 'About Us' }]}
     />
 
-    <ContentBand surface="muted">
-      <h2 className="font-display text-3xl font-extrabold text-charcoal">Our story</h2>
-      <p className="mt-6 max-w-3xl text-base leading-relaxed text-ink-muted">
-        We were founded with a simple belief: every young person deserves the chance to flourish.
-        Too many face barriers that limit access to enrichment, wellbeing support, and positive
-        opportunities — we exist to change that.
+    <SplitSection image={IMAGES.centre} imageAlt="The Inspire Hub activity centre">
+      <span className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--accent)' }}>
+        Our story
+      </span>
+      <h2 className="mt-2 font-display text-2xl font-black md:text-3xl">Founded on a simple belief</h2>
+      <p className="mt-4 text-grey">
+        Inspire Hub CIC was founded with a simple belief: every young person deserves the chance to
+        flourish, regardless of their background or circumstances.
       </p>
-      <p className="mt-4 max-w-3xl text-base leading-relaxed text-ink-muted">
-        As a Community Interest Company, we reinvest all profits into programmes for disadvantaged
-        young people. Our team includes educators, youth workers, wellbeing practitioners, and
-        creative facilitators — all DBS-checked and trained in safeguarding.
+      <p className="mt-3 text-grey">
+        Too many young people face barriers that limit their access to enrichment, wellbeing support
+        and positive opportunities. We exist to change that.
       </p>
-    </ContentBand>
+    </SplitSection>
 
-    <section className="bg-white py-16 lg:py-20">
-      <div className="sb-container">
-        <h2 className="font-display text-3xl font-extrabold text-charcoal">Our values</h2>
-        <div className="mx-auto mt-12 max-w-4xl space-y-16">
-          {VALUES.map((v) => {
-            const reversed = v.align === 'right'
-            const bg =
-              v.color === 'red'
-                ? 'bg-red'
-                : v.color === 'yellow'
-                  ? 'bg-yellow'
-                  : v.color === 'sky'
-                    ? 'bg-sky'
-                    : 'bg-charcoal'
+    <Section className="section-ink text-center">
+      <span className="text-xs font-bold uppercase tracking-[0.2em] text-teal">Our vision</span>
+      <h2 className="mx-auto mt-3 max-w-3xl font-display text-2xl font-black leading-tight text-white md:text-3xl">
+        A future where every young person rises with confidence — held by community, guided by
+        opportunity, and free to imagine the life they deserve.
+      </h2>
+      <p className="mt-4 text-white/70">Inspire. Believe. Achieve.</p>
+    </Section>
 
-            return (
-              <div
-                key={v.title}
-                className={`grid items-center gap-8 md:grid-cols-2 ${reversed ? 'md:[&>*:first-child]:order-2' : ''}`}
-              >
-                <div
-                  className={`sb-leaf flex aspect-square max-w-[220px] items-center justify-center font-display text-5xl font-extrabold text-white ${bg} ${reversed ? 'md:ml-auto' : ''}`}
-                >
-                  {v.icon}
-                </div>
-                <div>
-                  <h3 className="font-display text-xl font-extrabold">{v.title}</h3>
-                  <p className="mt-3 text-ink-muted">{v.body}</p>
-                </div>
-              </div>
-            )
-          })}
-        </div>
-      </div>
-    </section>
+    <Section className="section-mist">
+      <SectionHead
+        eyebrow="Mission & values"
+        title="The INSPIRE values"
+        body="Our mission is to inspire young people, nurture belief in their abilities, and create pathways for them to achieve their goals."
+      />
+      <InspireGrid />
+    </Section>
 
-    <LinkCardsSection
-      cards={[
-        { title: 'Our programmes', image: IMAGES.discover2, to: '/programmes' },
-        { title: 'Support us', image: IMAGES.discover1, to: '/support' },
-      ]}
-    />
-
-    <CTABand
-      title="Partner with a youth-first CIC"
-      body="Whether you're a school, a funder, or a neighbour — we'll co-design programmes that meet local need."
-      primary={{ label: 'Contact us', to: '/contact' }}
-      secondary={{ label: 'Support our work', to: '/support' }}
-    />
+    <Section>
+      <Stagger className="grid gap-6 md:grid-cols-3">
+        <StaggerItem>
+          <IHCard
+            icon="👥"
+            title="Meet the team"
+            body="Educators, youth workers, wellbeing practitioners, coaches and creative facilitators who share a passion for empowering young people. All staff are DBS-checked and trained in safeguarding and inclusive delivery."
+            color="purple"
+          />
+        </StaggerItem>
+        <StaggerItem>
+          <IHCard
+            icon="🏢"
+            title="Our CIC structure"
+            body="As a Community Interest Company, we reinvest all profits into programmes that benefit disadvantaged young people. We are committed to community impact, transparency and long-term change."
+            color="teal"
+          />
+        </StaggerItem>
+        <StaggerItem>
+          <IHCard
+            icon="🤝"
+            title="Partners & funders"
+            body="We collaborate with schools, charities, local authorities and community organisations who share our vision for equality of access and youth empowerment."
+            color="orange"
+          />
+        </StaggerItem>
+      </Stagger>
+    </Section>
   </>
 )
