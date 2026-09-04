@@ -15,14 +15,14 @@ export const ProgrammesPage = () => (
       ]}
     />
 
-    <SplitSection image={IMAGES.teambuilding} imageAlt="Young people on a team-building challenge">
-      <span className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--accent)' }}>
+    <SplitSection className="section-mist" image={IMAGES.teambuilding} imageAlt="Young people on a team-building challenge">
+      <span className="ih-eyebrow">
         In the community
       </span>
-      <h2 className="mt-2 font-display text-2xl font-black md:text-3xl">
+      <h2 className="font-display">
         Programmes that bring young people together
       </h2>
-      <p className="mt-4 text-grey">
+      <p>
         From school workshops to weekend clubs and residentials, our programmes are built around
         connection, challenge and fun.
       </p>

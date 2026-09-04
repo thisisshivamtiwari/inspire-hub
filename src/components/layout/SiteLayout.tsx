@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { usePageAccent } from '../../hooks/usePageAccent'
+import { IHMarkDefs } from '../ui/IHMark'
 import { ScrollToTop } from './ScrollToTop'
 import { SiteFooter } from './SiteFooter'
 import { SiteHeader } from './SiteHeader'
@@ -14,6 +15,7 @@ export const SiteLayout = ({ children }: SiteLayoutProps) => {
 
   return (
     <>
+      <IHMarkDefs />
       <ScrollToTop />
       <TopBar />
       <SiteHeader />

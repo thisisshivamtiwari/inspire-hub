@@ -41,7 +41,7 @@ export const ImpactPage = () => (
         body="Anonymised stories showing how Inspire Hub has changed lives."
       />
       <Stagger className="grid gap-6 md:grid-cols-3">
-        <StaggerItem><IHCard icon="⭐" title="Finding a voice" body="How one young person went from quiet newcomer to leading our music nights." color="amber" /></StaggerItem>
+        <StaggerItem><IHCard icon="⭐" title="Finding a voice" body="How one young person went from quiet newcomer to well-being lead." color="amber" /></StaggerItem>
         <StaggerItem><IHCard icon="🌿" title="Building resilience" body="Wellbeing check-ins that helped a young person manage anxiety at school." color="teal" /></StaggerItem>
         <StaggerItem><IHCard icon="🤝" title="Belonging" body="A new arrival finding friendship and confidence through sport." color="pink" /></StaggerItem>
       </Stagger>

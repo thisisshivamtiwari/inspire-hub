@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import { SITE } from '../../lib/site'
-import { SafeImage } from './SafeImage'
+import { IHMark } from './IHMark'
 import { cn } from '../../lib/cn'
 
 type BrandLogoProps = {
@@ -13,11 +13,12 @@ type BrandLogoProps = {
   className?: string
 } & Omit<ComponentPropsWithoutRef<'div'>, 'children'>
 
+/** Reference: `.brand .mark{height:42px;width:auto}` */
 const markSize: Record<NonNullable<BrandLogoProps['size']>, string> = {
-  sm: 'h-11 w-11',
-  md: 'h-20 w-20',
-  lg: 'h-28 w-28',
-  xl: 'h-40 w-40 sm:h-52 sm:w-52',
+  sm: 'h-[42px]',
+  md: 'h-14',
+  lg: 'h-20',
+  xl: 'h-28 sm:h-32',
 }
 
 export const BrandLogo = ({
@@ -34,27 +35,22 @@ export const BrandLogo = ({
     <div
       className={cn(
         'flex min-w-0',
-        layout === 'horizontal' ? 'items-center gap-3' : 'flex-col items-center text-center',
+        layout === 'horizontal' ? 'items-center gap-[.7rem]' : 'flex-col items-center text-center',
         className,
       )}
       {...props}
     >
-      <SafeImage
-        src="/logo.svg"
-        alt=""
-        width={size === 'xl' ? 208 : size === 'lg' ? 112 : size === 'md' ? 80 : 44}
-        height={size === 'xl' ? 208 : size === 'lg' ? 112 : size === 'md' ? 80 : 44}
-        className={cn('shrink-0 object-contain', markSize[size])}
-      />
+      <IHMark className={cn('w-auto shrink-0', markSize[size])} />
 
       <div className={cn('min-w-0', layout === 'stacked' && 'mt-4')}>
         <p
           className={cn(
-            'font-display font-extrabold uppercase tracking-wide',
-            size === 'sm' && 'text-sm leading-tight',
-            size === 'md' && 'text-lg leading-tight',
-            size === 'lg' && 'text-xl leading-tight',
-            size === 'xl' && 'text-2xl leading-tight sm:text-3xl',
+            // Reference: `.brand .word{font-weight:800;font-size:1.4rem;letter-spacing:.02em}`
+            'font-display font-extrabold uppercase leading-tight tracking-[.02em]',
+            size === 'sm' && 'text-[1.4rem]',
+            size === 'md' && 'text-[1.6rem]',
+            size === 'lg' && 'text-[1.9rem]',
+            size === 'xl' && 'text-[2.2rem] sm:text-[2.6rem]',
             isLight ? 'text-white' : 'text-charcoal',
           )}
         >
@@ -63,12 +59,13 @@ export const BrandLogo = ({
         {showTagline ? (
           <p
             className={cn(
-              'font-display font-bold uppercase tracking-[0.14em]',
-              size === 'sm' && 'mt-0.5 text-[10px] sm:text-[11px]',
-              size === 'md' && 'mt-1 text-xs',
-              size === 'lg' && 'mt-1.5 text-xs sm:text-sm',
-              size === 'xl' && 'mt-2 text-xs sm:text-sm',
-              isLight ? 'text-white/85' : 'text-ink-muted',
+              // Reference: `.brand .word small{font-size:.48rem;letter-spacing:.32em;color:#b9bac0}`
+              'font-display font-bold uppercase leading-none tracking-[.32em]',
+              size === 'sm' && 'mt-px text-[.48rem]',
+              size === 'md' && 'mt-0.5 text-[.55rem]',
+              size === 'lg' && 'mt-1 text-[.65rem]',
+              size === 'xl' && 'mt-1.5 text-[.75rem]',
+              isLight ? 'text-[#b9bac0]' : 'text-grey',
             )}
           >
             {SITE.brandTagline}

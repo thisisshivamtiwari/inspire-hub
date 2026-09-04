@@ -10,8 +10,8 @@ import {
 import { GALLERY_IMAGES, IMAGES } from '../lib/site'
 
 const UPCOMING = [
-  { day: '12', month: 'Jul', title: 'Inspire Hub Enrichment Week', body: 'A celebration of creativity, movement and youth voice. All ages welcome.' },
-  { day: '20', month: 'Jul', title: 'Wellbeing & Resilience Workshop', body: 'Practical tools for managing stress and building confidence.' },
+  { day: '12', month: 'Sept', title: 'Inspire Hub Enrichment Week', body: 'A celebration of creativity, sport and youth voice. All ages welcome.' },
+  { day: '20', month: 'Sept', title: 'Wellbeing & Resilience Workshop', body: 'Practical tools for managing stress and building confidence.' },
   { day: '02', month: 'Aug', title: 'Summer Multi-Sports Residential', body: 'Active, enriching holiday programme combining movement and connection.' },
 ]
 
@@ -42,11 +42,11 @@ export const EventsPage = () => (
     </Section>
 
     <SplitSection image={IMAGES.grounds} imageAlt="The grounds with giant outdoor chess and picnic benches">
-      <span className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--accent)' }}>
+      <span className="ih-eyebrow">
         Booking & registration
       </span>
-      <h2 className="mt-2 font-display text-2xl font-black md:text-3xl">Simple, accessible booking</h2>
-      <p className="mt-4 text-grey">
+      <h2 className="font-display">Simple, accessible booking</h2>
+      <p>
         Our booking forms are clear and accessible, with safeguarding and accessibility information
         provided up front so families know exactly what to expect.
       </p>

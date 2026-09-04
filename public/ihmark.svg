@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 60" role="img" aria-label="Inspire Hub">
+  <defs>
+    <path id="s" d="M0,-9.5 L2.2,-3 L9,-2.9 L3.5,1.2 L5.6,7.7 L0,3.8 L-5.6,7.7 L-3.5,1.2 L-9,-2.9 L-2.2,-3 Z"/>
+  </defs>
+  <use href="#s" transform="translate(11,15) scale(.40)" fill="#8E24C9"/>
+  <use href="#s" transform="translate(16,24) scale(.30)" fill="#2C6FE8"/>
+  <use href="#s" transform="translate(31,11) scale(.42)" fill="#00AFDF"/>
+  <use href="#s" transform="translate(18,30) scale(.95)" fill="#8E24C9"/>
+  <use href="#s" transform="translate(25,21) scale(.70)" fill="#2C6FE8"/>
+  <use href="#s" transform="translate(40,17) scale(.85)" fill="#00AFDF"/>
+  <use href="#s" transform="translate(54,21) scale(.58)" fill="#8BC53F"/>
+  <use href="#s" transform="translate(25,39) scale(.60)" fill="#2C6FE8"/>
+  <use href="#s" transform="translate(40,43) scale(.80)" fill="#00AFDF"/>
+  <use href="#s" transform="translate(54,39) scale(.55)" fill="#8BC53F"/>
+  <use href="#s" transform="translate(60,30) scale(.52)" fill="#FFD200"/>
+  <use href="#s" transform="translate(66,21) scale(.58)" fill="#FFB400"/>
+  <use href="#s" transform="translate(81,17) scale(.85)" fill="#FF7E00"/>
+  <use href="#s" transform="translate(96,21) scale(.70)" fill="#ED2602"/>
+  <use href="#s" transform="translate(102,30) scale(.95)" fill="#EC0F6E"/>
+  <use href="#s" transform="translate(66,39) scale(.55)" fill="#FFB400"/>
+  <use href="#s" transform="translate(81,43) scale(.80)" fill="#FF7E00"/>
+  <use href="#s" transform="translate(96,39) scale(.60)" fill="#ED2602"/>
+</svg>

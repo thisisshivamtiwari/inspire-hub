@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { cn } from '../../lib/cn'
+import { IHMark } from '../ui/IHMark'
 
 /* ── Page Banner ── */
 type PageBannerProps = {
@@ -18,18 +19,19 @@ export const PageBanner = ({ title, subtitle, breadcrumb }: PageBannerProps) => 
       animate={{ x: [0, 20, 0], y: [0, 15, 0] }}
       transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
     />
-    <div className="relative mx-auto max-w-7xl">
+    <IHMark className="page-banner-mark" />
+    <div className="ih-wrap relative z-2">
       {breadcrumb && (
         <motion.nav
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-3 flex flex-wrap gap-1 text-sm font-semibold text-grey"
+          className="mb-[14px] flex flex-wrap gap-1 text-[.85rem] font-semibold text-grey"
         >
           {breadcrumb.map((crumb, i) => (
             <span key={crumb.label} className="flex items-center gap-1">
-              {i > 0 && <span className="text-line">›</span>}
+              {i > 0 && <span>›</span>}
               {crumb.to ? (
-                <Link to={crumb.to} className="hover:text-purple">
+                <Link to={crumb.to} className="hover:text-[color:var(--accent)]">
                   {crumb.label}
                 </Link>
               ) : (
@@ -67,8 +69,8 @@ type SectionProps = {
 }
 
 export const Section = ({ children, className, id }: SectionProps) => (
-  <section id={id} className={cn('px-4 py-14 md:py-20', className)}>
-    <div className="mx-auto max-w-7xl">{children}</div>
+  <section id={id} className={cn('ih-section', className)}>
+    <div className="ih-wrap">{children}</div>
   </section>
 )
 
@@ -83,14 +85,10 @@ export const SectionHead = ({
   body?: string
   center?: boolean
 }) => (
-  <div className={cn('mb-10', center && 'text-center')}>
-    {eyebrow && (
-      <p className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--accent)' }}>
-        {eyebrow}
-      </p>
-    )}
-    <h2 className="mt-2 font-display text-2xl font-black md:text-3xl">{title}</h2>
-    {body && <p className={cn('mt-3 max-w-2xl text-grey', center && 'mx-auto')}>{body}</p>}
+  <div className={cn('section-head', center && 'mx-auto text-center')}>
+    {eyebrow && <span className="ih-eyebrow">{eyebrow}</span>}
+    <h2>{title}</h2>
+    {body && <p>{body}</p>}
   </div>
 )
 
@@ -109,28 +107,24 @@ export const SplitSection = ({
   className?: string
 }) => (
   <Section className={className}>
-    <div
-      className={cn(
-        'grid items-center gap-10 md:grid-cols-2',
-        reverse && 'md:[&>*:first-child]:order-2',
-      )}
-    >
+    <div className={cn('ih-split', reverse && 'rev')}>
       <motion.div
         initial={{ opacity: 0, x: reverse ? 40 : -40 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="overflow-hidden rounded-2xl shadow-card"
+        className={cn('copy', reverse && 'md:order-2')}
       >
-        <img src={image} alt={imageAlt} className="h-full w-full object-cover" loading="lazy" />
+        {children}
       </motion.div>
       <motion.div
         initial={{ opacity: 0, x: reverse ? -40 : 40 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.1 }}
+        className="ih-photo"
       >
-        {children}
+        <img src={image} alt={imageAlt} loading="lazy" />
       </motion.div>
     </div>
   </Section>
@@ -258,8 +252,8 @@ export const StatRow = ({
         transition={{ delay: i * 0.1 }}
         className="text-center"
       >
-        <div className="stat-num">{s.num}</div>
-        <div className="stat-label">{s.label}</div>
+        <b className="stat-num">{s.num}</b>
+        <span className="stat-label">{s.label}</span>
       </motion.div>
     ))}
   </div>

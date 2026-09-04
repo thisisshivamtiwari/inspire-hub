@@ -36,13 +36,13 @@ export const MentalHealthPage = () => (
     </Section>
 
     <SplitSection image={IMAGES.den} imageAlt="A young person building a woodland den">
-      <span className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--accent)' }}>
+      <span className="ih-eyebrow">
         One-to-one support
       </span>
-      <h2 className="mt-2 font-display text-2xl font-black md:text-3xl">
+      <h2 className="font-display">
         Space to talk, reflect and build confidence
       </h2>
-      <p className="mt-4 text-grey">
+      <p>
         We offer wellbeing check-ins and mentoring for young people who need individual support —
         a calm space to talk things through at their own pace.
       </p>

@@ -38,11 +38,11 @@ export const HomePage = () => (
     </Section>
 
     <SplitSection className="section-mist" image={IMAGES.climbing} imageAlt="Young people on the high-ropes pole climb">
-      <span className="text-xs font-bold uppercase tracking-[0.2em] text-orange">Featured highlight</span>
-      <h2 className="mt-2 font-display text-2xl font-black md:text-3xl">Inspire Hub Enrichment Week</h2>
-      <p className="mt-4 text-grey">
-        A celebration of creativity, movement and youth voice — a week of workshops, sport,
-        performance and connection that brings our whole community together.
+      <span className="ih-eyebrow" style={{ color: 'var(--orange)' }}>Featured highlight</span>
+      <h2 className="font-display">Inspire Hub Enrichment Week</h2>
+      <p>
+        A celebration of creativity, sport and youth voice — a week of workshops, activities
+        and connection that brings our whole community together.
       </p>
       <Link to="/events" className="btn mt-6 inline-flex bg-pink text-white">
         See what's on
@@ -55,7 +55,7 @@ export const HomePage = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <span className="text-xs font-bold uppercase tracking-[0.2em] text-teal">Our values</span>
+        <span className="ih-eyebrow" style={{ color: 'var(--teal)' }}>Our values</span>
         <h2 className="mt-2 font-display text-2xl font-black text-white md:text-3xl">
           Guided by INSPIRE
         </h2>

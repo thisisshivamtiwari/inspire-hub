@@ -12,7 +12,7 @@ export const ContactPage = () => (
     <Section>
       <div className="grid items-start gap-10 md:grid-cols-2">
         <div>
-          <span className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--accent)' }}>
+          <span className="ih-eyebrow">
             Send us a message
           </span>
           <h2 className="mt-2 font-display text-2xl font-black">Get in touch</h2>

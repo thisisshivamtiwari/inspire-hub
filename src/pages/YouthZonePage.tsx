@@ -15,7 +15,7 @@ const YOUTH_GALLERY = [
 
 const POSTS = [
   { image: IMAGES.climbing, cat: 'Voice', title: 'What belonging means to me' },
-  { image: IMAGES.campfire, cat: 'Wellbeing', title: 'How music helps me switch off' },
+  { image: IMAGES.campfire, cat: 'Wellbeing', title: 'How the outdoors helps me switch off' },
   { image: IMAGES.teambuilding, cat: 'Leadership', title: 'Leading my first workshop' },
 ]
 

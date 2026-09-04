@@ -21,14 +21,14 @@ export const SchoolsPage = () => (
       ]}
     />
 
-    <SplitSection image={IMAGES.classroom} imageAlt="Inside an Inspire Hub teaching space">
-      <span className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--accent)' }}>
+    <SplitSection className="section-mist" image={IMAGES.classroom} imageAlt="Inside an Inspire Hub teaching space">
+      <span className="ih-eyebrow">
         Inside our sessions
       </span>
-      <h2 className="mt-2 font-display text-2xl font-black md:text-3xl">
+      <h2 className="font-display">
         Spaces designed for focus and calm
       </h2>
-      <p className="mt-4 text-grey">
+      <p>
         Bright, welcoming teaching spaces and outdoor settings that help young people engage, learn
         and thrive.
       </p>

@@ -13,27 +13,27 @@ export const AboutPage = () => (
   <>
     <PageBanner
       title="About Us"
-      subtitle="Every young person deserves the chance to flourish, regardless of their background or circumstances. We exist to change what holds them back."
+      subtitle="Every young person deserves the chance to flourish, regardless of their background or circumstances. We exist to open doors and unlock futures."
       breadcrumb={[{ label: 'Home', to: '/' }, { label: 'About Us' }]}
     />
 
     <SplitSection image={IMAGES.centre} imageAlt="The Inspire Hub activity centre">
-      <span className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--accent)' }}>
+      <span className="ih-eyebrow">
         Our story
       </span>
-      <h2 className="mt-2 font-display text-2xl font-black md:text-3xl">Founded on a simple belief</h2>
-      <p className="mt-4 text-grey">
+      <h2 className="font-display">Founded on a simple belief</h2>
+      <p>
         Inspire Hub CIC was founded with a simple belief: every young person deserves the chance to
         flourish, regardless of their background or circumstances.
       </p>
-      <p className="mt-3 text-grey">
+      <p>
         Too many young people face barriers that limit their access to enrichment, wellbeing support
         and positive opportunities. We exist to change that.
       </p>
     </SplitSection>
 
     <Section className="section-ink text-center">
-      <span className="text-xs font-bold uppercase tracking-[0.2em] text-teal">Our vision</span>
+      <span className="ih-eyebrow" style={{ color: 'var(--teal)' }}>Our vision</span>
       <h2 className="mx-auto mt-3 max-w-3xl font-display text-2xl font-black leading-tight text-white md:text-3xl">
         A future where every young person rises with confidence — held by community, guided by
         opportunity, and free to imagine the life they deserve.

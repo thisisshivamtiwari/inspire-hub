@@ -35,26 +35,26 @@ export const PhysicalHealthPage = () => (
     </Section>
 
     <SplitSection reverse image={IMAGES.harnesses} imageAlt="Young people getting ready for an outdoor activity">
-      <span className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--accent)' }}>
+      <span className="ih-eyebrow">
         Fitness for wellbeing
       </span>
-      <h2 className="mt-2 font-display text-2xl font-black md:text-3xl">
+      <h2 className="font-display">
         Gentle, accessible, body-positive
       </h2>
-      <p className="mt-4 text-grey">
+      <p>
         Fitness sessions that promote body positivity, self-care and mental clarity — accessible for
         every ability and designed to feel good, not intimidating.
       </p>
     </SplitSection>
 
-    <SplitSection image={IMAGES.campfire} imageAlt="A campfire on a residential evening">
-      <span className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--accent)' }}>
+    <SplitSection className="section-mist" image={IMAGES.campfire} imageAlt="A campfire on a residential evening">
+      <span className="ih-eyebrow">
         Residentials
       </span>
-      <h2 className="mt-2 font-display text-2xl font-black md:text-3xl">
+      <h2 className="font-display">
         Active, enriching holiday programmes
       </h2>
-      <p className="mt-4 text-grey">
+      <p>
         Safe, active and enriching holiday programmes that combine movement, creativity and social
         connection — giving young people new experiences and lasting friendships.
       </p>
